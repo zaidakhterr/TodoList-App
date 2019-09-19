@@ -26,18 +26,20 @@ export class EditTodoForm extends Component {
 
   render() {
     return (
-      <div className='EditTodoForm'>
-        <form onSubmit={this.handleSubmit}>
+      <li className='EditTodoForm'>
+        <form className='EditTodoForm-form' onSubmit={this.handleSubmit}>
+          {/* <label htmlFor='EditTask'>Edit</label> */}
           <input
-            className='EditTodoForm-textField'
+            id='EditTask'
             type='text'
             name='task'
             value={this.state.task}
+            autoComplete='off'
             onChange={this.handleChange}
           />
-          <input className='EditTodoForm-btn btn' type='submit' value='Save' />
+          <button>Save</button>
         </form>
-      </div>
+      </li>
     );
   }
 }

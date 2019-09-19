@@ -11,7 +11,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: #9cecfb;
-  background: -webkit-linear-gradient(to right, #0052d4, #65c7f7, #0052d4);
-  background: linear-gradient(to right, #0052d4, #65c7f7, #0052d4);
+  background: #8e9eab;
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+
+  max-height: 100vh;
 }

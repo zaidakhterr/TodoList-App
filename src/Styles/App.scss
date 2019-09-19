@@ -1,0 +1,15 @@
+// Reset the default button styles all over the app
+.App {
+  margin: 0 3rem;
+}
+
+button {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  appearance: none;
+}

@@ -1,0 +1,54 @@
+.EditTodoForm {
+  display: flex;
+  align-items: center;
+  margin: 0 -3rem 4px;
+  padding: 0 3rem;
+  height: 77px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+
+  &-form {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    label {
+      font-size: 1.4rem;
+      margin-right: 5px;
+    }
+
+    input,
+    button {
+      font-family: inherit;
+      height: 2.3rem;
+      //border-radius: 2px;
+    }
+
+    input {
+      flex-grow: 1;
+      border: none;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 0 1.5rem;
+      font-size: initial;
+      font-weight: normal;
+      outline: none;
+    }
+
+    button {
+      padding: 0 1.3rem;
+      background: rgba(255, 255, 255, 0.1);
+      text-transform: uppercase;
+      font-weight: bold;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      margin-left: 5px;
+      transition: background 0.4s ease-out;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}

@@ -35,6 +35,7 @@ export class TodoList extends Component {
     this.deleteTodo = this.deleteTodo.bind(this);
     this.editTodo = this.editTodo.bind(this);
     this.saveTodo = this.saveTodo.bind(this);
+    this.completeTodo = this.completeTodo.bind(this);
   }
 
   addTodo(todo) {
@@ -84,6 +85,19 @@ export class TodoList extends Component {
     }));
   }
 
+  completeTodo(todo) {
+    this.setState(() => ({
+      todos: [
+        ...this.state.todos.map(item => {
+          if (item.id === todo.id) {
+            item.isCompleted = !item.isCompleted;
+          }
+          return item;
+        }),
+      ],
+    }));
+  }
+
   render() {
     let todos = this.state.todos.map(todo =>
       todo.isEditing ? (
@@ -94,13 +108,16 @@ export class TodoList extends Component {
           todo={todo}
           deleteTodo={this.deleteTodo}
           editTodo={this.editTodo}
+          completeTodo={this.completeTodo}
         />
       )
     );
 
     return (
       <div className='TodoList'>
-        <h1 className='Todolist-header'>Todo List</h1>
+        <h1 className='Todolist-header'>
+          Todo List <small>A Simple TodoList App Made With React</small>{' '}
+        </h1>
         <ul className='TodoList-list'>{todos}</ul>
         <NewTodoForm addTodo={this.addTodo} />
       </div>

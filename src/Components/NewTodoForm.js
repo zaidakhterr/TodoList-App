@@ -26,19 +26,19 @@ export class NewTodoForm extends Component {
 
   render() {
     return (
-      <div className='NewTodoForm'>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            className='NewTodoForm-textField'
-            type='text'
-            name='task'
-            value={this.state.task}
-            placeholder='Add task ...'
-            onChange={this.handleChange}
-          />
-          <input className='NewTodoForm-btn btn' type='submit' value='Add' />
-        </form>
-      </div>
+      <form className='NewTodoForm' onSubmit={this.handleSubmit}>
+        <label htmlFor='NewTask'>New Todo</label>
+        <input
+          id='NewTask'
+          type='text'
+          name='task'
+          value={this.state.task}
+          placeholder='Add todo ...'
+          autoComplete='off'
+          onChange={this.handleChange}
+        />
+        <button>Add</button>
+      </form>
     );
   }
 }

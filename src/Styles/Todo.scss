@@ -1,0 +1,107 @@
+.Todo {
+  display: flex;
+  margin: 0 -3rem 4px;
+  padding: 1.1rem 3rem;
+  height: 77px;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+  transition: opacity 500ms ease-in-out;
+
+  &-disabled {
+    opacity: 0.5;
+  }
+
+  &-task {
+    position: relative;
+    transition: opacity 0.4s linear;
+    cursor: pointer;
+  }
+
+  &-completed {
+    transition: opacity 300ms ease-in-out;
+    transition-delay: 200ms;
+    // opacity: 0.5;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 55%;
+      left: -0.5rem;
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #fff;
+      animation: strikeitem 300ms ease-in 0s forwards;
+    }
+  }
+
+  &-btn-group {
+    flex-shrink: 0;
+    padding-left: 0.7rem;
+    margin-left: auto;
+
+    .Todo-btn {
+      font-size: 1rem;
+      margin: 0.4rem;
+
+      i {
+        display: inline-block;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+
+      &:hover {
+        color: #eeeeee;
+      }
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+
+      &:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &-text {
+        visibility: hidden;
+        width: 50px;
+        background-color: rgb(255, 200, 200);
+        color: #000;
+        text-align: center;
+        padding: 1px 5px;
+        font-size: 0.7rem;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -25px;
+        opacity: 0;
+        transition: opacity 0.3s;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: rgb(255, 200, 200) transparent transparent transparent;
+        }
+      }
+    }
+  }
+}
+
+@keyframes strikeitem {
+  to {
+    width: calc(100% + 1rem);
+  }
+}

@@ -1,0 +1,64 @@
+.NewTodoForm {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+    min-width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  input,
+  button {
+    font-family: inherit;
+    height: 3rem;
+    //border-radius: 2px;
+  }
+
+  input {
+    flex-grow: 1;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 0 1.5rem;
+    font-size: initial;
+    font-weight: normal;
+    border: none;
+    outline: none;
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+
+    &::placeholder {
+      color: #fff;
+      opacity: 1;
+    }
+
+    &::-webkit-input-placeholder {
+      /* Edge */
+      color: #fff;
+      opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #fff;
+      opacity: 1;
+    }
+  }
+
+  button {
+    padding: 0 1.3rem;
+    background: rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-left: 5px;
+    transition: background 0.4s ease-out;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
