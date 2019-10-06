@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
-import Todo from './Todo';
-import NewTodoForm from './NewTodoForm';
-import EditTodoForm from './EditTodoForm';
+import { connect } from 'react-redux';
+import { addTodo } from '../redux/actions/todoActions';
+import Todo from '../components/Todo';
+import NewTodoForm from '../components/NewTodoForm';
+import EditTodoForm from '../components/EditTodoForm';
 
 import '../Styles/TodoList.scss';
 
@@ -39,17 +41,7 @@ export class TodoList extends Component {
   }
 
   addTodo(todo) {
-    this.setState(() => ({
-      todos: [
-        ...this.state.todos,
-        {
-          id: uuid(),
-          task: todo.task,
-          isCompleted: false,
-          isEditing: false,
-        },
-      ],
-    }));
+    this.props.addTodo(todo);
   }
 
   deleteTodo(todo) {
@@ -99,7 +91,7 @@ export class TodoList extends Component {
   }
 
   render() {
-    let todos = this.state.todos.map(todo =>
+    let todos = this.props.todos.map(todo =>
       todo.isEditing ? (
         <EditTodoForm key={todo.id} todo={todo} saveTodo={this.saveTodo} />
       ) : (
@@ -125,4 +117,15 @@ export class TodoList extends Component {
   }
 }
 
-export default TodoList;
+const mapStateToProps = state => ({
+  todos: state.todoReducer.todos,
+});
+
+const mapDispatchToProps = {
+  addTodo,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList);
